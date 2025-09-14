@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxurious Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Luxurious dark theme with golden accents */
+    --background: 220 15% 6%;
+    --background-secondary: 220 20% 8%;
+    --foreground: 45 100% 95%;
+
+    --card: 220 20% 8%;
+    --card-foreground: 45 100% 95%;
+    --card-glass: 220 20% 12%;
+
+    --popover: 220 20% 8%;
+    --popover-foreground: 45 100% 95%;
+
+    --primary: 45 100% 65%;
+    --primary-foreground: 220 15% 6%;
+    --primary-glow: 45 100% 75%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 45 100% 95%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 45 20% 70%;
+
+    --accent: 45 100% 65%;
+    --accent-foreground: 220 15% 6%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 100% 95%;
+
+    --border: 220 15% 15%;
+    --border-glass: 220 20% 20%;
+    --input: 220 15% 12%;
+    --ring: 45 100% 65%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--background-secondary)));
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+
+    /* Shadows */
+    --shadow-luxury: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    /* Animations */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border-glass));
+    box-shadow: var(--shadow-glass);
+  }
+
+  .luxury-button {
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-luxury);
+  }
+
+  .luxury-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow), var(--shadow-luxury);
+  }
+
+  .carousel-fade {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .thumbnail-active {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+}
